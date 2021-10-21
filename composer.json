@@ -29,10 +29,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php":">=7.3",
-        "laravel/framework": "^8.65",
-        "{vendor}/{package}": "dev-master",
-        "guzzlehttp/guzzle": "^7.0.1"
+        "php":">=7.3"
     },
     "require-dev": {
         "laravel/breeze": "^1.4"
