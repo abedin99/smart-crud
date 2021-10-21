@@ -88,7 +88,7 @@ class SmartCrudInstallCommand extends Command
 #  \____/ /_/ |_|  \____/ /_____/    
 #                                                                                                                       
 			");
-        $this->info('------------ :===: Welcome To Smart Crud :==: -----------');
+        $this->info('----------------- :===: Welcome To Smart Crud :==: ----------------');
         $this->info('###################################################################');
     }
     
@@ -162,9 +162,9 @@ class SmartCrudInstallCommand extends Command
         $this->info('Documentation : https://www.abed.in/docs/smart-crud');
         $this->info('###################################################################');
         if ($success == true) {
-            $this->info('------------------- :===: Completed !! :===: ------------------------');
+            $this->info('------------------- :===: Completed !! :===: ----------------------');
         } else {
-            $this->info('------------------- :===: Failed !!    :===: ------------------------');
+            $this->info('------------------- :===: Failed !!    :===: ----------------------');
         }
         exit;
     }
