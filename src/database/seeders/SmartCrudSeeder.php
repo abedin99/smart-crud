@@ -1,7 +1,5 @@
 <?php
 
-namespace Abedin99\SmartCrud\Database\Seeders;
-
 use Illuminate\Database\Seeder;
 
 class SmartCrudSeeder extends Seeder
