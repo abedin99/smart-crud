@@ -58,6 +58,9 @@ class SmartCrudInstallCommand extends Command
             }
 
             $this->info('Publishing smart crud assets file...');
+            $this->call('config:clear');
+            
+            $this->call('vendor:publish', ['--provider' => 'abedin99\smartcrud\SmartCrudServiceProvider']);
         } else {
             $this->info('Setup Aborted !');
             $this->comment('Please setting the database configuration for first !');
