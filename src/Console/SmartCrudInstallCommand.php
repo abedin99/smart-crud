@@ -62,9 +62,9 @@ class SmartCrudInstallCommand extends Command
             $this->call('vendor:publish', ['--provider' => 'abedin99\smartcrud\SmartCrudServiceProvider']);
             $this->comment('Dumping the autoloaded files and reloading all new files...');
 
-            $composer = $this->findComposer();
-            $process = new Process($composer.' dump-autoload');
-            $process->setWorkingDirectory(base_path())->run();
+            // $composer = $this->findComposer();
+            // $process = new Process($composer.' dump-autoload');
+            // $process->setWorkingDirectory(base_path())->run();
 
             $this->info('Migrating database...');
             $this->call('migrate');
