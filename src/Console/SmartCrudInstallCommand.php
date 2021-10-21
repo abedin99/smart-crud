@@ -99,9 +99,9 @@ class SmartCrudInstallCommand extends Command
         $laravel = app();
 
         if ($laravel::VERSION >= 8.0) {
-            $this->info('Laravel Version (>= 8.0.*) : [Good]');
+            $this->info('Laravel Version (>= 8.0.*) : [OK]');
         } else {
-            $this->info('Laravel Version (>= 8.0.*) : [Bad]');
+            $this->info('Laravel Version (>= 8.0.*) : [Downgrade] Yours: '.$laravel::VERSION);
             $system_failed++;
         }
 
