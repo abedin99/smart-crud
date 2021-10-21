@@ -2,5 +2,8 @@
 
 return [
 
-    'ADMIN_PATH' => 'admin',
+    'route' => [
+        'index' => 'admin',
+        'prefix' => 'admin',
+    ],
 ];

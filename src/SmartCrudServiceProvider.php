@@ -15,7 +15,8 @@ class SmartCrudServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__.'/configs/smartcrud.php','smartcrud');        
+        
     }
 
     /**
