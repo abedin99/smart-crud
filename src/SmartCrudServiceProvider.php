@@ -16,7 +16,7 @@ class SmartCrudServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/configs/smartcrud.php','smartcrud');        
-        
+
         $this->app->singleton('smartcrud', function ()
         {
             return true;
@@ -32,8 +32,8 @@ class SmartCrudServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/views', 'smartcrud');
 
-        $this->publishes([__DIR__.'/configs/smartcrud.php' => config_path('smartcrud.php')],'smartcrud-config');
-        $this->publishes([__DIR__.'/database/migrations/' => database_path('migrations')],'smartcrud-migrations');
+        $this->publishes([__DIR__.'/configs/smartcrud.php' => config_path('smartcrud.php')], 'smartcrud-config');
+        $this->publishes([__DIR__.'/database/migrations/' => database_path('migrations')], 'smartcrud-migrations');
 
         if (! $this->app->runningInConsole()) {
             return;
