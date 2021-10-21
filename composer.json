@@ -41,7 +41,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Abedin99\\SmartCrud\\PermissionServiceProvider"
+                "Abedin99\\SmartCrud\\CrudServiceProvider"
             ]
         },
         "branch-alias": {
