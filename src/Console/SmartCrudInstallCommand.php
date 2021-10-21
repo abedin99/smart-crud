@@ -63,7 +63,7 @@ class SmartCrudInstallCommand extends Command
             $this->comment('Dumping the autoloaded files and reloading all new files...');
 
             $composer = $this->findComposer();
-            $process = new Process($composer.' dumpautoload');
+            $process = new Process($composer.' dump-autoload');
             $process->setWorkingDirectory(base_path())->run();
 
             $this->info('Migrating database...');
