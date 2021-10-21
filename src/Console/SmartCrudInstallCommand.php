@@ -33,36 +33,32 @@ class SmartCrudInstallCommand extends Command
         
         $this->header();
 
+        //Check server requirements
         $this->checkRequirements();
+
+        //Setup all assets and files
+        $this->runSetup();
         
         $this->footer(true);
         
     }
 
     /**
-     * Installs the given Composer Packages into the application.
+     * Replace all assets and files.
      *
-     * @param  mixed  $packages
      * @return void
      */
-    protected function requireComposerPackages($packages)
+    protected function runSetup()
     {
-        $composer = $this->option('composer');
-
-        if ($composer !== 'global') {
-            $command = ['php', $composer, 'require'];
+        
+        if ($this->confirm('Do you have setting the database configuration at .env ?'))
+        {
+            if (! file_exists(public_path('vendor'))) {
+                mkdir(public_path('vendor'), 0777);
+            }
         }
 
-        $command = array_merge(
-            $command ?? ['composer', 'require'],
-            is_array($packages) ? $packages : func_get_args()
-        );
-
-        (new Process($command, base_path(), ['COMPOSER_MEMORY_LIMIT' => '-1']))
-            ->setTimeout(null)
-            ->run(function ($type, $output) {
-                $this->output->write($output);
-            });
+        $this->info('Publishing smart crud assets file...');
     }
 
     /**
@@ -160,6 +156,7 @@ class SmartCrudInstallCommand extends Command
 
         if ($system_failed != 0) {
             $this->comment('Sorry unfortunately your system is not meet with our requirements !');
+            $this->info('--');
             $this->footer(false);
         }
         $this->info('--');
