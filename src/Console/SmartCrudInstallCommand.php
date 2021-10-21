@@ -112,42 +112,49 @@ class SmartCrudInstallCommand extends Command
         if (version_compare(phpversion(), '7.3.0', '>=')) {
             $this->info('PHP Version (>= 7.3.*)     : [OK]');
         } else {
-            $this->info('PHP Version (>= 7.3.*)     : [Downgrade] Yours: '.phpversion());
+            $this->comment('PHP Version (>= 7.3.*)     : [Downgrade] Yours: '.phpversion());
             $system_failed++;
         }
 
         if (extension_loaded('openssl')) {
             $this->info('OpenSSL extension          : [Enable]');
         } else {
-            $this->info('OpenSSL extension          : [Not enable]');
+            $this->comment('OpenSSL extension          : [Not enable]');
+            $system_failed++;
+        }
+
+        if (extension_loaded('imap')) {
+            $this->info('imap extension          : [Enable]');
+        } else {
+            $this->comment('imap extension             : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('pdo')) {
             $this->info('PDO extension              : [Enable]');
         } else {
-            $this->info('PDO extension              : [Not enable]');
+            $this->comment('PDO extension              : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('xml')) {
             $this->info('XML extension              : [Enable]');
         } else {
-            $this->info('XML extension              : [Not enable]');
+            $this->comment('XML extension              : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('gd')) {
             $this->info('GD extension               : [Enable]');
         } else {
-            $this->info('GD extension               : [Not enable]');
+            $this->comment('GD extension               : [Not enable]');
             $system_failed++;
         }
 
         if (is_writable(base_path('public'))) {
             $this->info('public dir is writable     : [OK]');
         } else {
-            $this->info('public dir is writable     : [Permission denied]');
+            $this->comment('public dir is writable     : [Permission denied]');
             $system_failed++;
         }
 
