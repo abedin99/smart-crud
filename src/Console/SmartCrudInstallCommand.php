@@ -56,9 +56,13 @@ class SmartCrudInstallCommand extends Command
             if (! file_exists(public_path('vendor'))) {
                 mkdir(public_path('vendor'), 0777);
             }
+
+            $this->info('Publishing smart crud assets file...');
+        } else {
+            $this->info('Setup Aborted !');
+            $this->comment('Please setting the database configuration for first !');
         }
 
-        $this->info('Publishing smart crud assets file...');
     }
 
     /**
