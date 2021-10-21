@@ -100,6 +100,25 @@ class SmartCrudInstallCommand extends Command
         file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
     }
 
+    /**
+     * Get the composer command for the environment.
+     *
+     * @return string
+     */
+    protected function findComposer()
+    {
+        if (file_exists(getcwd().'/composer.phar')) {
+            return '"'.PHP_BINARY.'" '.getcwd().'/composer.phar';
+        }
+
+        return 'composer';
+    }
+    
+    /**
+     * Get the asset header info for command.
+     *
+     * @return string
+     */
     private function header()
     {
         $this->info("                        
