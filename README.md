@@ -3,3 +3,11 @@
 ## About Crud
 
 Smart Crud is a Laravel Backend Application Platform build on Laravel 8 or up.
+
+## Installation
+
+Require this package with composer. It is recommended to only require the package for development.
+
+```shell
+composer require abedin99/smartcrud --dev
+```
