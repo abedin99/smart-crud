@@ -23,6 +23,22 @@ class SmartCrudServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        if (! $this->app->runningInConsole()) {
+            return;
+        }
+
+        $this->commands([
+            Console\SmartCrudInstallCommand::class,
+        ]);
+    }
+    
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [Console\SmartCrudInstallCommand::class];
     }
 }
