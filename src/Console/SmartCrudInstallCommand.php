@@ -61,7 +61,7 @@ class SmartCrudInstallCommand extends Command
             
             $this->call('vendor:publish', ['--provider' => 'abedin99\smartcrud\SmartCrudServiceProvider']);
             $this->call('vendor:publish', ['--tag' => 'smartcrud-migrations', '--force' => true]);
-            $this->call('vendor:publish', ['--config' => 'smartcrud-config', '--force' => true]);
+            $this->call('vendor:publish', ['--tag' => 'smartcrud-config', '--force' => true]);
             $this->comment('Dumping the autoloaded files and reloading all new files...');
 
             // $composer = $this->findComposer();
