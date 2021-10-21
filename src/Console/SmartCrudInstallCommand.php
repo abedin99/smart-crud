@@ -99,51 +99,51 @@ class SmartCrudInstallCommand extends Command
         $laravel = app();
 
         if ($laravel::VERSION >= 8.0) {
-            $this->info('Laravel Version (>= 8.0.*): [Good]');
+            $this->info('Laravel Version (>= 8.0.*) : [Good]');
         } else {
-            $this->info('Laravel Version (>= 8.0.*): [Bad]');
+            $this->info('Laravel Version (>= 8.0.*) : [Bad]');
             $system_failed++;
         }
 
         if (version_compare(phpversion(), '7.3.0', '>=')) {
-            $this->info('PHP Version (>= 7.3.*): [Good]');
+            $this->info('PHP Version (>= 7.3.*)     : [OK]');
         } else {
-            $this->info('PHP Version (>= 7.3.*): [Bad] Yours: '.phpversion());
+            $this->info('PHP Version (>= 7.3.*)     : [Downgrade] Yours: '.phpversion());
             $system_failed++;
         }
 
         if (extension_loaded('openssl')) {
-            $this->info('OpenSSL extension: [Good]');
+            $this->info('OpenSSL extension          : [Enable]');
         } else {
-            $this->info('OpenSSL extension: [Bad]');
+            $this->info('OpenSSL extension          : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('pdo')) {
-            $this->info('PDO extension: [Good]');
+            $this->info('PDO extension              : [Enable]');
         } else {
-            $this->info('PDO extension: [Bad]');
+            $this->info('PDO extension              : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('xml')) {
-            $this->info('XML extension: [Good]');
+            $this->info('XML extension              : [Enable]');
         } else {
-            $this->info('XML extension: [Bad]');
+            $this->info('XML extension              : [Not enable]');
             $system_failed++;
         }
 
         if (extension_loaded('gd')) {
-            $this->info('GD extension: [Good]');
+            $this->info('GD extension               : [Enable]');
         } else {
-            $this->info('GD extension: [Bad]');
+            $this->info('GD extension               : [Not enable]');
             $system_failed++;
         }
 
         if (is_writable(base_path('public'))) {
-            $this->info('public dir is writable: [Good]');
+            $this->info('public dir is writable     : [OK]');
         } else {
-            $this->info('public dir is writable: [Bad]');
+            $this->info('public dir is writable     : [Permission denied]');
             $system_failed++;
         }
 
