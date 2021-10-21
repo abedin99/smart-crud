@@ -23,6 +23,8 @@ class SmartCrudServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__.'/views', 'smartcrud');
+
         if (! $this->app->runningInConsole()) {
             return;
         }

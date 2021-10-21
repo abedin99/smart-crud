@@ -58,9 +58,28 @@ class SmartCrudInstallCommand extends Command
             }
 
             $this->info('Publishing smart crud assets file...');
-            $this->call('config:clear');
             
             $this->call('vendor:publish', ['--provider' => 'abedin99\smartcrud\SmartCrudServiceProvider']);
+            $this->comment('Dumping the autoloaded files and reloading all new files...');
+
+            $composer = $this->findComposer();
+            $process = new Process($composer.' dumpautoload');
+            $process->setWorkingDirectory(base_path())->run();
+
+            $this->info('Migrating database...');
+            $this->call('migrate');
+            
+            if (! class_exists('CBSeeder')) {
+                require_once __DIR__.'/../database/seeds/CBSeeder.php';
+            }
+            $this->call('db:seed', ['--class' => 'CBSeeder']);
+            
+            $this->call('config:clear');
+
+            if (app()->version() < 5.6) {
+                $this->call('optimize');
+            }
+
         } else {
             $this->info('Setup Aborted !');
             $this->comment('Please setting the database configuration for first !');
