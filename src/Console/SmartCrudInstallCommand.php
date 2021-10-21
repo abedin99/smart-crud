@@ -60,6 +60,7 @@ class SmartCrudInstallCommand extends Command
             $this->info('Publishing smart crud assets file...');
             
             $this->call('vendor:publish', ['--provider' => 'abedin99\smartcrud\SmartCrudServiceProvider']);
+            $this->call('vendor:publish', ['--tag' => 'smartcrud-migrations', '--force' => true]);
             $this->comment('Dumping the autoloaded files and reloading all new files...');
 
             // $composer = $this->findComposer();
@@ -76,7 +77,7 @@ class SmartCrudInstallCommand extends Command
             
             $this->call('config:clear');
 
-            if (app()->version() < 5.6) {
+            if (app()->version() < 7.3) {
                 $this->call('optimize');
             }
 
