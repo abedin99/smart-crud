@@ -13,7 +13,7 @@ class CreateSmartCrudTables extends Migration
      */
     public function up()
     {
-        Schema::create('smart_crud_users', function (Blueprint $table) {
+        Schema::create(config('smartcrud.table_name'), function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
             $table->string('email', 255)->unique();
