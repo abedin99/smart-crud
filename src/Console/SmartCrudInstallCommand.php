@@ -70,7 +70,7 @@ class SmartCrudInstallCommand extends Command
             $this->call('migrate');
             
             if (! class_exists('SmartCrudSeeder')) {
-                require_once __DIR__.'/../database/seeds/SmartCrudSeeder.php';
+                require_once __DIR__.'/../database/seeders/SmartCrudSeeder.php';
             }
             $this->call('db:seed', ['--class' => 'SmartCrudSeeder']);
             
