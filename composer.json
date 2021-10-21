@@ -28,9 +28,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php":">=7.3"
-    },
-    "require-dev": {
+        "php":">=7.3",
         "laravel/breeze": "^1.4"
     },
     "autoload": {
