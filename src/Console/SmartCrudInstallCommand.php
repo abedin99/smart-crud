@@ -159,7 +159,7 @@ class SmartCrudInstallCommand extends Command
         }
 
         if ($system_failed != 0) {
-            $this->info('Sorry unfortunately your system is not meet with our requirements !');
+            $this->comment('Sorry unfortunately your system is not meet with our requirements !');
             $this->footer(false);
         }
         $this->info('--');
@@ -175,7 +175,7 @@ class SmartCrudInstallCommand extends Command
         if ($success == true) {
             $this->info('------------------- :===: Completed !! :===: ----------------------');
         } else {
-            $this->info('------------------- :===: Failed !!    :===: ----------------------');
+            $this->comment('------------------- :===: Failed !!    :===: ----------------------');
         }
         exit;
     }
