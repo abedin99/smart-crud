@@ -15,39 +15,12 @@ class CreateSmartCrudTables extends Migration
     {
         Schema::create('smart_crud_users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('name', 255);
+            $table->string('email', 255)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password', 255);
             $table->rememberToken();
             $table->timestamps();
-        });
-
-        Schema::create('smart_crud_personal_access_tokens', function (Blueprint $table) {
-            $table->id();
-            $table->morphs('tokenable');
-            $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->timestamp('last_used_at')->nullable();
-            $table->timestamps();
-        });
-
-        
-        Schema::create('smart_crud_password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
-        });
-
-        Schema::create('smart_crud_failed_jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('uuid')->unique();
-            $table->text('connection');
-            $table->text('queue');
-            $table->longText('payload');
-            $table->longText('exception');
-            $table->timestamp('failed_at')->useCurrent();
         });
     }
 
@@ -58,9 +31,6 @@ class CreateSmartCrudTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('smart_crud_personal_access_tokens');
-        Schema::dropIfExists('smart_crud_password_resets');
-        Schema::dropIfExists('smart_crud_failed_jobs');
+        Schema::dropIfExists('smart_crud_users');
     }
 }
