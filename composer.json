@@ -1,0 +1,56 @@
+{
+    "name": "abedin99/smartcrud",
+    "description": "Crud Bangla Is CRUD Generator Based On Laravel 8 And Up Easy To Make An Advanced Backend",
+    "type": "project",
+    "license": "MIT",
+    "keywords":[
+        "laravel",
+        "admin-panel",
+        "admin-dashboard",
+        "backend",
+        "dashboard",
+        "crud-generator",
+        "backend-generator",
+        "dashboard-generator",
+        "smart-crud",
+        "crud",
+        "crud-backend",
+        "bangla-modular",
+        "modular",
+        "generator"
+    ],
+    "authors": [
+        {
+            "name": "abedin99",
+            "email": "pjoy813@gmail.com",
+            "homepage": "https://abed.in",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php":">=7.3",
+        "laravel/framework": "^8.65",
+        "{vendor}/{package}": "dev-master",
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "require-dev": {
+        "laravel/breeze": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Abedin99\\SmartCrud\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Abedin99\\SmartCrud\\PermissionServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "prefer-stable": true
+}
