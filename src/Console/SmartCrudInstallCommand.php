@@ -154,7 +154,7 @@ class SmartCrudInstallCommand extends Command
         $this->info('--');
     }
 
-    private function footer($success)
+    private function footer($success = true)
     {
         $this->info('--');
         $this->info('Homepage : https://www.abed.in');
