@@ -1,7 +1,6 @@
 {
     "name": "abedin99/smartcrud",
     "description": "Crud Bangla Is CRUD Generator Based On Laravel 8 And Up Easy To Make An Advanced Backend",
-    "type": "project",
     "license": "MIT",
     "keywords":[
         "laravel",
