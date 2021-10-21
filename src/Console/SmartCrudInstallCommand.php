@@ -90,10 +90,14 @@ class SmartCrudInstallCommand extends Command
 			");
         $this->info('----------------- :===: Welcome To Smart Crud :==: ----------------');
         $this->info('###################################################################');
+        
+        $this->info('--');
     }
     
     private function checkRequirements()
     {
+        
+        $this->info('--');
         $this->info('System Requirements Checking:');
         $system_failed = 0;
         $laravel = app();
