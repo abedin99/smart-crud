@@ -1,10 +1,10 @@
 <?php
 
-namespace Abedin99\CrudBangla;
+namespace Abedin99\SmartCrud;
 
 use Illuminate\Support\ServiceProvider;
 
-class CrudServiceProvider extends ServiceProvider
+class SmartCrudServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
