@@ -30,8 +30,13 @@ class SmartCrudInstallCommand extends Command
      */
     public function handle()
     {
-        $this->info('Smart crud scaffolding installed successfully.');
-        $this->comment('Good luck for your project! Thank You:)');
+        
+        $this->header();
+
+        $this->checkRequirements();
+        
+        $this->footer();
+        
     }
 
     /**
@@ -71,5 +76,96 @@ class SmartCrudInstallCommand extends Command
     protected function replaceInFile($search, $replace, $path)
     {
         file_put_contents($path, str_replace($search, $replace, file_get_contents($path)));
+    }
+
+    private function header()
+    {
+        $this->info("                        
+#     ______  ____    __  __  ____   
+#    / ____/ / __ \  / / / / / __ \  
+#   / /     / /_/ / / / / / / / / /  
+#  / /___  / _, _/ / /_/ / / /_/ /   
+#  \____/ /_/ |_|  \____/ /_____/    
+#                                                                                                                       
+			");
+        $this->info('------------ :===: Welcome To Smart Crud :==: -----------');
+        $this->info('###################################################################');
+    }
+    
+    private function checkRequirements()
+    {
+        $this->info('System Requirements Checking:');
+        $system_failed = 0;
+        $laravel = app();
+
+        if ($laravel::VERSION >= 8.0) {
+            $this->info('Laravel Version (>= 8.0.*): [Good]');
+        } else {
+            $this->info('Laravel Version (>= 8.0.*): [Bad]');
+            $system_failed++;
+        }
+
+        if (version_compare(phpversion(), '7.3.0', '>=')) {
+            $this->info('PHP Version (>= 7.3.*): [Good]');
+        } else {
+            $this->info('PHP Version (>= 7.3.*): [Bad] Yours: '.phpversion());
+            $system_failed++;
+        }
+
+        if (extension_loaded('openssl')) {
+            $this->info('OpenSSL extension: [Good]');
+        } else {
+            $this->info('OpenSSL extension: [Bad]');
+            $system_failed++;
+        }
+
+        if (extension_loaded('pdo')) {
+            $this->info('PDO extension: [Good]');
+        } else {
+            $this->info('PDO extension: [Bad]');
+            $system_failed++;
+        }
+
+        if (extension_loaded('xml')) {
+            $this->info('XML extension: [Good]');
+        } else {
+            $this->info('XML extension: [Bad]');
+            $system_failed++;
+        }
+
+        if (extension_loaded('gd')) {
+            $this->info('GD extension: [Good]');
+        } else {
+            $this->info('GD extension: [Bad]');
+            $system_failed++;
+        }
+
+        if (is_writable(base_path('public'))) {
+            $this->info('public dir is writable: [Good]');
+        } else {
+            $this->info('public dir is writable: [Bad]');
+            $system_failed++;
+        }
+
+        if ($system_failed != 0) {
+            $this->info('Sorry unfortunately your system is not meet with our requirements !');
+            $this->footer(false);
+        }
+        $this->info('--');
+    }
+
+    private function footer($success)
+    {
+        $this->info('--');
+        $this->info('Homepage : https://www.abed.in');
+        $this->info('Github : https://github.com/abedin99/smart-crud');
+        $this->info('Documentation : https://www.abed.in/docs/smart-crud');
+        $this->info('###################################################################');
+        if ($success == true) {
+            $this->info('------------------- :===: Completed !! :===: ------------------------');
+        } else {
+            $this->info('------------------- :===: Failed !!    :===: ------------------------');
+        }
+        exit;
     }
 }
