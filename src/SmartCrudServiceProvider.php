@@ -27,7 +27,7 @@ class SmartCrudServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/views', 'smartcrud');
 
-        $this->publishes([__DIR__.'/configs/smartcrud.php' => config_path('smartcrud.php')],'smartcrud_config');
+        $this->publishes([__DIR__.'/config/smartcrud.php' => config_path('smartcrud.php')],'smartcrud_config');
         $this->publishes([__DIR__.'/database' => base_path('database')],'smartcrud_migration');
 
         if (! $this->app->runningInConsole()) {
