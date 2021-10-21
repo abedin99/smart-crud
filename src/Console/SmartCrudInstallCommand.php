@@ -119,13 +119,6 @@ class SmartCrudInstallCommand extends Command
             $system_failed++;
         }
 
-        if (extension_loaded('imap')) {
-            $this->info('imap extension          : [Enable]');
-        } else {
-            $this->comment('imap extension             : [Not enable]');
-            $system_failed++;
-        }
-
         if (extension_loaded('pdo')) {
             $this->info('PDO extension              : [Enable]');
         } else {
