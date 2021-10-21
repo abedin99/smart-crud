@@ -17,6 +17,10 @@ class SmartCrudServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/configs/smartcrud.php','smartcrud');        
         
+        $this->app->singleton('smartcrud', function ()
+        {
+            return true;
+        });
     }
 
     /**
