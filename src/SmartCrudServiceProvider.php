@@ -3,6 +3,8 @@
 namespace Abedin99\SmartCrud;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\AliasLoader;
 
 class SmartCrudServiceProvider extends ServiceProvider
 {
@@ -24,6 +26,9 @@ class SmartCrudServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/views', 'smartcrud');
+
+        $this->publishes([__DIR__.'/configs/smartcrud.php' => config_path('smartcrud.php')],'smartcrud_config');
+        $this->publishes([__DIR__.'/database' => base_path('database')],'smartcrud_migration');
 
         if (! $this->app->runningInConsole()) {
             return;
